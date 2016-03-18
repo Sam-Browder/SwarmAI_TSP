@@ -1,27 +1,30 @@
+import java.util.ArrayList;
+
 
 
 public class Node {
-	public Node[] neighbor;
-	public int[] dist;
+	public ArrayList<Node> neighbor;
+	public ArrayList<Integer> dist;
 	public int id;
 
 	public Node(int i, int numberOfCities) {
 		id = i;
-		neighbor = new Node[numberOfCities];
-		dist = new int[numberOfCities];
+		neighbor = new ArrayList<Node>();
+		dist = new ArrayList<Integer>();
 	}
 
 	public void setNeighbor(Node node, int distance) {
-		neighbor[node.getID()] = node;
-		dist[node.getID()] = distance;
+		neighbor.add(node);
+		dist.add(distance);
 	}
 
 	public Node[] getNeighbors() {
-		return neighbor;
+		neighbor.add(null);
+		return  neighbor.toArray(new Node[neighbor.size()]);
 	}
 
 	public int getNeighborID(int j) {
-		return neighbor[j].getID();
+		return neighbor.get(j).getID();
 	}
 
 	public int getID() {
@@ -29,7 +32,7 @@ public class Node {
 	}
 
 	public int getDistance(int j) {
-		return dist[j];
+		return dist.get(j);
 	}
 	
 }
