@@ -1,35 +1,35 @@
-import java.util.ArrayList;
 
 
 public class Node {
+	public Node[] neighbor;
+	public int[] dist;
+	public int id;
 
 	public Node(int i, int numberOfCities) {
-		// TODO Auto-generated constructor stub
+		id = i;
+		neighbor = new Node[numberOfCities];
+		dist = new int[numberOfCities];
 	}
 
 	public void setNeighbor(Node node, int distance) {
-		// TODO Auto-generated method stub
-		
+		neighbor[node.getID()] = node;
+		dist[node.getID()] = distance;
 	}
 
 	public Node[] getNeighbors() {
-		// TODO Auto-generated method stub
-		return null;
+		return neighbor;
 	}
 
 	public int getNeighborID(int j) {
-		// TODO Auto-generated method stub
-		return 0;
+		return neighbor[j].getID();
 	}
 
 	public int getID() {
-		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
 
 	public int getDistance(int j) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dist[j];
 	}
 	
 }
